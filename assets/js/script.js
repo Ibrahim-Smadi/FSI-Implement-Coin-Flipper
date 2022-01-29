@@ -1,27 +1,63 @@
-// TODO: Declare any global variables we need
-
+let headFlips = 0
+let tailFlips = 0
 
 document.addEventListener('DOMContentLoaded', function () {
-    // This is just a sanity check to make sure your JavaScript script is getting loaded
-    // You can remove it once you see it in your browser console in the developer tools
-    console.log('Hi')
+    document.getElementById('flip').addEventListener('click', () => {
+        
+        let coinflip = Math.random() < 0.5
 
-    // TODO: Add event listener and handler for flip and clear buttons
+        if (coinflip) {
+            document.getElementById('penny-image').src = 'assets/images/penny-heads.jpg'
+            document.getElementById('message').textContent = 'You flipped Heads!'
+            headFlips += 1
+        }
+        
+        else {
+            document.getElementById('penny-image').src = 'assets/images/penny-tails.jpg'
+            document.getElementById('message').textContent = 'You flipped Tails!'
+            tailFlips += 1
+        }
 
-    // Flip Button Click Handler
-        // TODO: Determine flip outcome
-        // TODO: Update image and status message in the DOM
+        let total = headFlips + tailFlips
+        let headPercent = 0
+        let tailPercent = 0
+        
+        if (total > 0) {
+            headPercent = Math.round((headFlips / total) * 100)
+            tailPercent = Math.round((tailFlips / total) * 100)
+        }
 
-        // Update the scorboard
-        // TODO: Calculate the total number of rolls/flips
-        // Make variables to track the percentages of heads and tails
-        // TODO: Use the calculated total to calculate the percentages
-        // HINT: Make sure not to divide by 0! (if total is 0, percent will be 0 as well)
-        // TODO: Update the display of each table cell
+        document.getElementById('heads').textContent = headFlips
+        document.getElementById('tails').textContent = tailFlips
+        document.getElementById('heads-percent').textContent = headPercent + '%'
+        document.getElementById('tails-percent').textContent = tailPercent + '%'
 
+    })
+    
+    document.getElementById('clear').addEventListener('click', function (){
+       headFlips = 0
+       tailFlips = 0
 
-    // Clear Button Click Handler
-        // TODO: Reset global variables to 0
-        // TODO: Update the scoreboard (same logic as in flip button click handler)
+       document.getElementById('message').textContent = 'Flip The Coin!'
+       
+       let total = headFlips + tailFlips
+       let headPercent = 0
+       let tailPercent = 0
+
+       if (total > 0) {
+           headPercent = Math.round((headFlips / total) * 100)
+           tailPercent = Math.round((tailFlips / total) * 100)
+       }
+
+       document.getElementById('heads').textContent = headFlips
+       document.getElementById('tails').textContent = tailFlips
+       document.getElementById('heads-percent').textContent = headPercent + '%'
+       document.getElementById('tails-percent').textContent = tailPercent + '%'
+
+    })
+    
+
+    console.log('JavaScript Loaded!')
+
 
 })
