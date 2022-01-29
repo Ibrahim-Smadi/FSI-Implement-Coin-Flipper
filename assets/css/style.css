@@ -7,11 +7,11 @@ body {
 
 body {
     min-height: 100vh;
-    background: linear-gradient(to bottom left, orange, white);
+    background: linear-gradient(to bottom left, rgb(75, 216, 252), white);
 }
 
 main {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.664);
     margin: 20px;
     padding: 25px;
 }
@@ -61,7 +61,7 @@ button {
 table, 
 th, 
 td {
-    border: 1px solid darkorange;
+    border: 1px solid rgb(53, 241, 47);
     margin: 0 auto;
 }
 
